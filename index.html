@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Carlos Benjamín Alvarenga — estudiante de ingeniería informática interesado en comprender sistemas, construir soluciones y conectar matemáticas, ingeniería y computación.">
+  <title>Carlos Benjamín Alvarenga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night: #101820;
+      --paper: #F4F6F5;
+      --slate: #435564;
+      --amber: #D6A84F;
+      --silver: #C9CED1;
+      --max-width: 1080px;
+      --radius: 14px;
+      --shadow: 0 14px 40px rgba(16, 24, 32, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--night);
+      font-family: "Inter", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 40px), var(--max-width)); margin-inline: auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(244, 246, 245, 0.94);
+      border-bottom: 1px solid rgba(67, 85, 100, 0.16);
+      backdrop-filter: blur(10px);
+    }
+    nav {
+      min-height: 76px; display: flex; align-items: center;
+      justify-content: space-between; gap: 32px;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 600; letter-spacing: -0.03em;
+    }
+    .system-mark { position: relative; width: 34px; height: 28px; flex: 0 0 auto; }
+    .system-mark span {
+      position: absolute; width: 7px; height: 7px;
+      border: 2px solid var(--night); border-radius: 50%;
+      background: var(--paper);
+    }
+    .system-mark span:nth-child(1) { left: 0; top: 10px; }
+    .system-mark span:nth-child(2) { left: 14px; top: 0; border-color: var(--amber); }
+    .system-mark span:nth-child(3) { left: 27px; top: 17px; }
+    .system-mark::before, .system-mark::after {
+      content: ""; position: absolute; height: 1.5px;
+      background: var(--slate); transform-origin: left center;
+    }
+    .system-mark::before { width: 17px; left: 5px; top: 11px; transform: rotate(-28deg); }
+    .system-mark::after { width: 18px; left: 18px; top: 8px; transform: rotate(35deg); }
+
+    .nav-links { display: flex; gap: 26px; color: var(--slate); font-size: 0.9rem; }
+    .nav-links a { transition: color 160ms ease; }
+    .nav-links a:hover { color: var(--night); }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid; align-items: center; padding: 96px 0 110px;
+    }
+    .eyebrow {
+      color: var(--slate); font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px;
+    }
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: -0.045em; line-height: 1.08;
+    }
+    h1 { max-width: 850px; font-size: clamp(3.2rem, 8vw, 6.5rem); font-weight: 600; }
+    .hero-title {
+      max-width: 780px; margin-top: 28px; color: var(--slate);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+      line-height: 1.35; letter-spacing: -0.025em;
+    }
+    .essence { max-width: 680px; margin-top: 30px; font-size: 1.08rem; color: var(--slate); }
+    .hero-rule { width: 72px; height: 3px; margin-top: 42px; background: var(--amber); }
+
+    section { padding: 110px 0; border-top: 1px solid rgba(67, 85, 100, 0.16); }
+    .section-heading {
+      display: grid; grid-template-columns: minmax(180px, 0.65fr) minmax(0, 1.35fr);
+      gap: 48px; margin-bottom: 58px;
+    }
+    .section-number {
+      color: var(--amber); font-family: "Space Grotesk", sans-serif;
+      font-weight: 600; font-size: 0.9rem; letter-spacing: 0.08em;
+    }
+    h2 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 600; }
+
+    .about-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--silver); border: 1px solid var(--silver);
+    }
+    .about-block { background: var(--paper); padding: 34px; }
+    .about-block h3 { font-size: 1.25rem; margin-bottom: 16px; }
+    .about-block p { color: var(--slate); font-size: 0.98rem; }
+
+    .territory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      min-height: 250px; padding: 30px;
+      border: 1px solid var(--silver); border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.28);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--amber); box-shadow: var(--shadow); }
+    .card-index { color: var(--amber); font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 0.82rem; }
+    .card h3 { margin: 42px 0 14px; font-size: 1.45rem; }
+    .card p { color: var(--slate); font-size: 0.95rem; }
+
+    .projects { display: grid; gap: 18px; }
+    .project {
+      display: grid; grid-template-columns: 90px 1fr auto; gap: 28px;
+      align-items: center; padding: 28px 30px;
+      border: 1px solid var(--silver); border-radius: var(--radius);
+    }
+    .project-number {
+      font-family: "Space Grotesk", sans-serif; font-size: 1.6rem;
+      color: var(--amber); font-weight: 600;
+    }
+    .project h3 { font-size: 1.35rem; margin-bottom: 5px; }
+    .project p { color: var(--slate); font-size: 0.92rem; }
+    .project-placeholder {
+      color: var(--slate); font-family: "Space Grotesk", sans-serif;
+      font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+
+    .contact { background: var(--night); color: var(--paper); }
+    .contact .section-number { color: var(--amber); }
+    .contact h2 { max-width: 700px; }
+    .contact-copy { max-width: 650px; margin-top: 24px; color: var(--silver); font-size: 1.05rem; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
+    .contact-link {
+      display: inline-flex; align-items: center; min-height: 46px; padding: 0 18px;
+      border: 1px solid var(--slate); border-radius: 999px;
+      color: var(--paper); font-size: 0.9rem;
+      transition: border-color 160ms ease, color 160ms ease;
+    }
+    .contact-link:hover { border-color: var(--amber); color: var(--amber); }
+
+    footer {
+      padding: 30px 0; background: var(--night);
+      border-top: 1px solid var(--slate); color: var(--silver); font-size: 0.8rem;
+    }
+
+    @media (max-width: 800px) {
+      .nav-links { gap: 14px; }
+      .section-heading { grid-template-columns: 1fr; gap: 14px; margin-bottom: 38px; }
+      .about-grid, .territory-grid { grid-template-columns: 1fr; }
+      .about-block { padding: 28px; }
+      .project { grid-template-columns: 50px 1fr; }
+      .project-placeholder { grid-column: 2; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(calc(100% - 28px), var(--max-width)); }
+      nav { min-height: 68px; }
+      .brand-name { max-width: 150px; line-height: 1.05; }
+      .nav-links a:nth-child(1) { display: none; }
+      .hero { min-height: auto; padding: 84px 0 96px; }
+      section { padding: 82px 0; }
+      h1 { font-size: clamp(2.9rem, 15vw, 4.5rem); }
+      .hero-title { font-size: 1.15rem; }
+      .essence { font-size: 1rem; }
+      .card { min-height: auto; }
+      .project { padding: 24px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Navegación principal">
+        <a class="brand" href="#inicio" aria-label="Inicio">
+          <span class="system-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="brand-name">Carlos Benjamín Alvarenga</span>
+        </a>
+        <div class="nav-links">
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#que-hago">Qué hago</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="eyebrow">Computación · Matemáticas · Ingeniería</div>
+        <h1>Carlos Benjamín Alvarenga</h1>
+        <p class="hero-title">
+          Computer Science Engineering Student | Understanding Systems, Building Solutions
+        </p>
+        <p class="essence">
+          Busco comprender profundamente cómo funcionan los sistemas para convertir
+          ideas abstractas en soluciones reales y compartir ese razonamiento con otros.
+        </p>
+        <div class="hero-rule" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-number">01 / SOBRE MÍ</div>
+          <h2>Comprender antes de construir.</h2>
+        </div>
+        <div class="about-grid">
+          <article class="about-block">
+            <h3>Comprender</h3>
+            <p>
+              Me interesa comprender cómo funcionan los sistemas, no solo hacer que funcionen.
+              Exploro problemas de computación, matemáticas e ingeniería desde la lógica y la abstracción.
+            </p>
+          </article>
+          <article class="about-block">
+            <h3>Conectar</h3>
+            <p>
+              Busco conectar las ideas teóricas con aplicaciones y sistemas reales, porque una
+              solución solo tiene verdadero valor para mí cuando puedo trasladar sus principios
+              a problemas nuevos.
+            </p>
+          </article>
+          <article class="about-block">
+            <h3>Compartir</h3>
+            <p>
+              Aprendo formulando preguntas, buscando respuestas y compartiendo el razonamiento
+              detrás de ellas. Construyo, experimento y documento lo que aprendo.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="que-hago">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-number">02 / QUÉ HAGO</div>
+          <h2>Ideas que se convierten en sistemas.</h2>
+        </div>
+        <div class="territory-grid">
+          <article class="card">
+            <div class="card-index">01</div>
+            <h3>Computación y sistemas</h3>
+            <p>Comprender cómo funcionan los sistemas, cómo diseñarlos y cómo razonar sobre ellos.</p>
+          </article>
+          <article class="card">
+            <div class="card-index">02</div>
+            <h3>Matemáticas e ingeniería aplicadas</h3>
+            <p>Explorar la conexión entre conceptos abstractos y problemas del mundo real.</p>
+          </article>
+          <article class="card">
+            <div class="card-index">03</div>
+            <h3>Aprendizaje y resolución de problemas</h3>
+            <p>Pasar de aplicar una receta a comprender el principio y utilizarlo en problemas nuevos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-number">03 / PROYECTOS</div>
+          <h2>Aprender construyendo.</h2>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-number">01</div>
+            <div>
+              <h3>[PROYECTO]</h3>
+              <p>Describe aquí el problema, lo que construiste y lo que aprendiste.</p>
+            </div>
+            <div class="project-placeholder">Añadir proyecto</div>
+          </article>
+          <article class="project">
+            <div class="project-number">02</div>
+            <div>
+              <h3>[PROYECTO]</h3>
+              <p>Describe aquí el problema, lo que construiste y lo que aprendiste.</p>
+            </div>
+            <div class="project-placeholder">Añadir proyecto</div>
+          </article>
+          <article class="project">
+            <div class="project-number">03</div>
+            <div>
+              <h3>[PROYECTO]</h3>
+              <p>Describe aquí el problema, lo que construiste y lo que aprendiste.</p>
+            </div>
+            <div class="project-placeholder">Añadir proyecto</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-number">04 / CONTACTO</div>
+          <h2>Construyamos algo que valga la pena entender.</h2>
+        </div>
+        <p class="contact-copy">
+          Estoy interesado en aprender, construir y compartir ideas con personas
+          interesadas en computación, matemáticas e ingeniería.
+        </p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:[CORREO]">[CORREO]</a>
+          <a class="contact-link" href="[LINKEDIN]" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="contact-link" href="[RED_SOCIAL]" target="_blank" rel="noopener">Redes</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Carlos Benjamín Alvarenga · Comprender · Construir · Compartir</div>
+  </footer>
+</body>
+</html>
